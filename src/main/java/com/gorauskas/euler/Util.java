@@ -43,4 +43,14 @@ public class Util {
             throw e;
         }
     }
+
+    public static boolean isPrime(double x) {
+        for (double i = 2; i <= Math.sqrt(x); i++) {
+            if (x % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
