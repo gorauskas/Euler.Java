@@ -20,8 +20,16 @@ public class Util {
         System.exit(0);
     }
 
-    public static void usage() {
-        System.out.println("Usage!");
+    public static void usage(CmdLineParser p) {
+        System.out.println("Project Euler problems & solutions written in Java 8");
+        System.out.println("");
+        System.out.println(" java -jar euler.jar [-v|-V|-?] -p <number>");
+        System.out.println("");
+        p.printUsage(System.out);
+        System.out.println("");
+        System.out.println(" Example:");
+        System.out.println("  java -jar euler.jar -v -p 1");
+
         System.exit(0);
     }
 
@@ -39,7 +47,7 @@ public class Util {
                 version();
 
             if (opt.doShowUsage())
-                usage();
+                usage(p);
 
         } catch (CmdLineException e) {
             if ("Option \"-p (--problem)\" is required".equals(e.getMessage())) {
