@@ -2,7 +2,6 @@ package com.gorauskas.euler.solutions;
 
 import com.gorauskas.euler.Euler;
 import com.gorauskas.euler.Util;
-import java.util.ArrayList;
 
 public class Euler4 implements Euler {
 
