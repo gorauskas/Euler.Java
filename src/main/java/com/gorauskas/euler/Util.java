@@ -69,4 +69,15 @@ public class Util {
 
         return true;
     }
+
+    public static boolean isPalindrome(long n) {
+        long x = 0, y = n;
+
+        while (y != 0) {
+            x = (x * 10) + y % 10;
+            y /= 10;
+        }
+
+        return (x == n);
+    }
 }
