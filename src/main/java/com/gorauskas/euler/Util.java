@@ -8,7 +8,15 @@ public class Util {
     public static int problem = 0;
 
     public static void version() {
-        System.out.println("Version!");
+        App o = new App();
+        Package p = o.getClass().getPackage();
+
+        System.out.println(
+                String.format("%s - version %s.%s",
+                        p.getSpecificationTitle(),
+                        p.getSpecificationVersion(),
+                        p.getImplementationVersion()));
+
         System.exit(0);
     }
 

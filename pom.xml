@@ -69,6 +69,11 @@
                   <addClasspath>true</addClasspath>
                   <mainClass>com.gorauskas.euler.App</mainClass>
                 </manifest>
+                <manifestEntries>
+                  <Specification-Title>Euler.Java</Specification-Title>
+                  <Specification-Version>0</Specification-Version>
+                  <Implementation-Version>1</Implementation-Version>
+                </manifestEntries>
               </archive>
               <descriptorRefs>
                 <descriptorRef>jar-with-dependencies</descriptorRef>
