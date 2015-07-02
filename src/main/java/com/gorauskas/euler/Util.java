@@ -3,7 +3,7 @@ package com.gorauskas.euler;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
-public class Util {
+public final class Util {
     public static boolean verbose = false;
     public static int problem = 0;
 
