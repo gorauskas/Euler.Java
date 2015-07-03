@@ -3,6 +3,9 @@ package com.gorauskas.euler;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
+
 public final class Util {
     public static boolean verbose = false;
     public static int problem = 0;
@@ -79,5 +82,27 @@ public final class Util {
         }
 
         return (x == n);
+    }
+
+    public static boolean isMultipleOf(int num, int multiple) {
+        if (num == 0 || multiple == 0)
+            return false;
+
+        return num % multiple == 0;
+    }
+
+    public static boolean isMultipleOf(int num, IntStream multiples) {
+        return multiples.allMatch(n -> isMultipleOf(num, n));
+    }
+
+    public static boolean isMultipleOf(long num, long multiple) {
+        if (num == 0 || multiple == 0)
+            return false;
+
+        return num % multiple == 0;
+    }
+
+    public static boolean isMultipleOf(long num, LongStream multiples) {
+        return multiples.allMatch(n -> isMultipleOf(num, n));
     }
 }
