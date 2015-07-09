@@ -1,8 +1,9 @@
 package com.gorauskas.euler;
 
+import org.kohsuke.args4j.CmdLineException;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.kohsuke.args4j.CmdLineException;
 
 public class App {
 
@@ -28,12 +29,14 @@ public class App {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 
             System.err.println("Unable to load Euler Problem class.");
+            System.err.println("Enter java -jar euler.jar -? for usage information");
             Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, e);
             System.exit(1);
 
         } catch (CmdLineException ex) {
 
             System.err.println("Unable to parse command line parameters.");
+            System.err.println("Enter java -jar euler.jar -? for usage information");
             Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
             System.exit(1);
 
