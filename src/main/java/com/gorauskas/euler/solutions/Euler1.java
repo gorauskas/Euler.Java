@@ -2,9 +2,19 @@ package com.gorauskas.euler.solutions;
 
 import com.gorauskas.euler.Euler;
 
+import java.util.stream.IntStream;
+
 public class Euler1 implements Euler {
     @Override
     public double Solve() {
+        return IntStream.range(1, 1000)
+                .filter(n -> n % 3 == 0 || n % 5 == 0)
+                .sum();
+
+        //return loopStrategy();
+    }
+
+    public double loopStrategy() {
         double sum = 0;
 
         for (int i = 1; i < 1000; i++) {
