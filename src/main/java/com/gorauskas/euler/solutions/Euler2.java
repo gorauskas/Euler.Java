@@ -1,11 +1,25 @@
 package com.gorauskas.euler.solutions;
 
 import com.gorauskas.euler.Euler;
+import com.gorauskas.euler.Util;
+
+import java.math.BigInteger;
 
 public class Euler2 implements Euler {
 
     @Override
     public double Solve() {
+        BigInteger two = new BigInteger("2");
+        return Util.fibonacciSequence(35)
+                .filter(i -> i.compareTo(BigInteger.valueOf(4000000)) < 0)
+                .filter(i -> i.mod(two).equals(BigInteger.ZERO))
+                .mapToLong(BigInteger::longValue)
+                .sum();
+
+        //return loopStrategy();
+    }
+
+    public double loopStrategy() {
         int x = 1, y = 1;
         int t = 0;
         int r = 0;
@@ -44,7 +58,7 @@ public class Euler2 implements Euler {
     @Override
     public String getAnswer() {
         String s = String.format("The sum of the even-valued terms in a Fibonacci sequence\n" +
-                                 "not exceeding 4 million is: %s", this.Solve());
+                                 "not exceeding 4 million is: %s", (long)this.Solve());
         return s;
     }
 
