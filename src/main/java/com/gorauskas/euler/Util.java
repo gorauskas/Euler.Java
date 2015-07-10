@@ -3,6 +3,7 @@ package com.gorauskas.euler;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -125,14 +126,15 @@ public final class Util {
         return primeSequence(Integer.MAX_VALUE);
     }
 
-    public static IntStream fibonacciSequence(int max) {
-        return Stream.iterate(new int[]{1, 1}, f -> new int[]{f[1], f[0] + f[1]})
-                .mapToInt(f -> f[0])
+    public static Stream<BigInteger> fibonacciSequence(long max) {
+        BigInteger bi = new BigInteger("1");
+        return Stream.iterate(new BigInteger[]{bi, bi}, f -> new BigInteger[]{f[1], f[0].add(f[1])})
+                .map(f -> f[0])
                 .limit(max);
     }
 
-    public static IntStream fibonacciSequence() {
-        return fibonacciSequence(Integer.MAX_VALUE);
+    public static Stream<BigInteger> fibonacciSequence() {
+        return fibonacciSequence(Long.MAX_VALUE);
     }
 
     public static IntStream triangleNumberSequence(int max) {
