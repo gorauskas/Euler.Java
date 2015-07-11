@@ -2,23 +2,34 @@ package com.gorauskas.euler.solutions;
 
 import com.gorauskas.euler.Euler;
 import com.gorauskas.euler.Util;
-import java.util.ArrayList;
+
+import java.util.stream.LongStream;
 
 public class Euler3 implements Euler {
 
     @Override
     public double Solve() {
         long n = 600851475143l;
-        ArrayList<Long> all = new ArrayList<>();
+        return LongStream.rangeClosed(2, 775164)
+                .filter(i -> n % i == 0 && Util.isPrime(i))
+                .max()
+                .getAsLong();
 
-        for (long i = 2; i <= 775164; i++) {
-            if (n % i == 0 && Util.isPrime(i)) {
-                all.add(i);
-            }
-        }
-
-        return all.get(all.size() - 1);
+        //return loopStrategy();
     }
+
+//    public double loopStrategy() {
+//        long n = 600851475143l;
+//        ArrayList<Long> all = new ArrayList<>();
+//
+//        for (long i = 2; i <= 775164; i++) {
+//            if (n % i == 0 && Util.isPrime(i)) {
+//                all.add(i);
+//            }
+//        }
+//
+//        return all.get(all.size() - 1);
+//    }
 
     @Override
     public String getProblem() {
