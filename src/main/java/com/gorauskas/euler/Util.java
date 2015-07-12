@@ -67,32 +67,22 @@ public final class Util {
         }
     }
 
-    public static boolean isPrime(double x) {
-        for (double i = 2; i <= Math.sqrt(x); i++) {
-            if (x % i == 0) {
-                return false;
-            }
-        }
-
-        return true;
+    public static boolean isPrime(long x) {
+        return LongStream.rangeClosed(2, (long)(Math.sqrt(x)))
+                .allMatch(n -> x % n != 0);
     }
 
     public static boolean isPalindrome(long n) {
-        long x = 0, y = n;
-
-        while (y != 0) {
-            x = (x * 10) + y % 10;
-            y /= 10;
-        }
-
-        return (x == n);
+        return ((Long)n)
+                .toString()
+                .equals(new StringBuilder(((Long) n)
+                        .toString())
+                        .reverse()
+                        .toString());
     }
 
     public static boolean isMultipleOf(int num, int multiple) {
-        if (num == 0 || multiple == 0)
-            return false;
-
-        return num % multiple == 0;
+        return (num == 0 || multiple == 0) ? false : num % multiple == 0;
     }
 
     public static boolean isMultipleOf(int num, IntStream multiples) {
@@ -100,10 +90,7 @@ public final class Util {
     }
 
     public static boolean isMultipleOf(long num, long multiple) {
-        if (num == 0 || multiple == 0)
-            return false;
-
-        return num % multiple == 0;
+        return (num == 0 || multiple == 0) ? false : num % multiple == 0;
     }
 
     public static boolean isMultipleOf(long num, LongStream multiples) {
@@ -133,9 +120,7 @@ public final class Util {
                 .limit(max);
     }
 
-    public static Stream<BigInteger> fibonacciSequence() {
-        return fibonacciSequence(Long.MAX_VALUE);
-    }
+    public static Stream<BigInteger> fibonacciSequence() { return fibonacciSequence(Long.MAX_VALUE); }
 
     public static IntStream triangleNumberSequence(int max) {
         return IntStream.iterate(1, i -> i + 1)
