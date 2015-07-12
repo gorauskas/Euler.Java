@@ -95,15 +95,13 @@ public final class Util {
         return multiples.allMatch(n -> isMultipleOf(num, n));
     }
 
-    public static IntStream primeSequence(int max) {
-        return IntStream.iterate(2, i -> i + 1)
+    public static LongStream primeSequence(long max) {
+        return LongStream.iterate(2, i -> i + 1)
                 .filter(x -> isPrime(x))
                 .limit(max);
     }
 
-    public static IntStream primeSequence() {
-        return primeSequence(Integer.MAX_VALUE);
-    }
+    public static LongStream primeSequence() { return primeSequence(Long.MAX_VALUE); }
 
     public static Stream<BigInteger> fibonacciSequence(long max) {
         BigInteger bi = new BigInteger("1");
