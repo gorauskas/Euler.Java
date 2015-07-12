@@ -4,8 +4,6 @@ import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
@@ -98,14 +96,8 @@ public final class Util {
     }
 
     public static IntStream primeSequence(int max) {
-        List<Integer> primes = new ArrayList<>(max);
         return IntStream.iterate(2, i -> i + 1)
-                .filter(x -> {
-                    for (int prime: primes)
-                        if (x % prime == 0)
-                            return false;
-                    return true;
-                })
+                .filter(x -> isPrime(x))
                 .limit(max);
     }
 
