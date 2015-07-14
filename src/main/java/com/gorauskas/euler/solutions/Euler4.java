@@ -3,10 +3,23 @@ package com.gorauskas.euler.solutions;
 import com.gorauskas.euler.Euler;
 import com.gorauskas.euler.Util;
 
+import java.util.stream.LongStream;
+
 public class Euler4 implements Euler {
 
     @Override
     public double Solve() {
+        return LongStream.rangeClosed(100, 999)
+                .flatMap(x -> LongStream.rangeClosed(100, 999)
+                        .map(y -> x * y))
+                .filter(Util::isPalindrome)
+                .max()
+                .getAsLong();
+
+        //return loopStrategy();
+    }
+
+    public double loopStrategy() {
         long x = 0;
         long y = 0;
 
