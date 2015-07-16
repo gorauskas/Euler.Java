@@ -9,6 +9,20 @@ Clone this repo and then run the following from the command line:
 
 ## Usage
 
+    Project Euler problems & solutions written in Java 8
+
+     java -jar euler.jar [-v|-V|-?] -p <number>
+
+     -V               : Displays the version information and exits. (default: false)
+     -h (--help, -?)  : Displays this help message and exits. (default: true)
+     -p (--problem) N : Specify the problem/solution number you want to run.
+                        (default: 0)
+     -v               : Verbose outputs the problem statement and the solution.
+                        (default: false)
+
+     Example:
+      java -jar euler.jar -v -p 1
+
 ## Tests
 
 Alternatively, there is a full set of unit tests written with jUnit that can be
