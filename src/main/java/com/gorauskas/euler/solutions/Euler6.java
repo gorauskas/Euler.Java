@@ -2,10 +2,23 @@ package com.gorauskas.euler.solutions;
 
 import com.gorauskas.euler.Euler;
 
+import java.util.stream.LongStream;
+
 public class Euler6 implements Euler {
 
     @Override
     public double Solve() {
+        double sumOfSqr = Math.pow((double)LongStream.rangeClosed(1, 100).sum(), 2.0);
+        double sqrOfSum = (double)LongStream.rangeClosed(1, 100)
+                .map(x -> (long)(Math.pow((double)x, 2.0)))
+                .sum();
+
+        return sumOfSqr - sqrOfSum;
+
+        //return loopStrategy();
+    }
+
+    public double loopStrategy() {
         long sumOfSquares = 0;
         long squareOfSums = 0;
         long sum = 0;
