@@ -1,11 +1,18 @@
 package com.gorauskas.euler.solutions;
 
 import com.gorauskas.euler.Euler;
+import com.gorauskas.euler.Util;
 
 public class Euler7 implements Euler {
 
     @Override
     public double Solve() {
+        return (double) Util.primeSequence(10001).reduce((a, b) -> b).getAsLong();
+
+        //return loopStrategy();
+    }
+
+    public double loopStrategy() {
         long n = 0, p = 1;
 
         while (p < 10000) {
