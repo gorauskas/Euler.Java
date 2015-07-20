@@ -4,9 +4,9 @@ import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
 import java.math.BigInteger;
-import java.util.stream.IntStream;
-import java.util.stream.LongStream;
-import java.util.stream.Stream;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.*;
 
 public final class Util {
     public static boolean verbose = false;
@@ -70,6 +70,18 @@ public final class Util {
                 .allMatch(n -> x % n != 0);
     }
 
+    public static boolean isEven(int n) {
+        return n % 2 == 0;
+    }
+
+    public static boolean isEven(long n) {
+        return n % 2 == 0;
+    }
+
+    public static boolean isEven(BigInteger n) {
+        return n.mod(new BigInteger("2")).equals(BigInteger.ZERO);
+    }
+
     public static boolean isPalindrome(long n) {
         return ((Long)n)
                 .toString()
@@ -122,6 +134,13 @@ public final class Util {
         return triangleNumberSequence(Integer.MAX_VALUE);
     }
 
+    public static List<Long> collatzSequence(long seed) {
+        Stream<Long> sl = Stream.iterate(seed, n -> n > 0 && n % 2 == 0 ? n / 2 : 3 * n + 1);
+        List<Long> ll = takeWhile(sl, i -> i > 1).collect(Collectors.toList());
+        ll.add(1l);
+        return ll;
+    }
+
     public static int numberOfDivisors(int n) {
         if (n == 1)
             return 1;
@@ -129,5 +148,9 @@ public final class Util {
         return (int)IntStream.rangeClosed(1, (int)Math.sqrt((double)n))
                 .filter(x -> isMultipleOf(n, x))
                 .count() * 2;
+    }
+
+    public static <T> Stream<T> takeWhile(Stream<T> source, Predicate<T> condition) {
+        return StreamSupport.stream(TakeWhileSpliterator.over(source.spliterator(), condition), false);
     }
 }
