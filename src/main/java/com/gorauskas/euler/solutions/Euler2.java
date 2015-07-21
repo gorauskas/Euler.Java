@@ -1,7 +1,7 @@
 package com.gorauskas.euler.solutions;
 
 import com.gorauskas.euler.Euler;
-import com.gorauskas.euler.Util;
+import com.gorauskas.euler.streams.StreamUtil;
 
 import java.math.BigInteger;
 
@@ -10,7 +10,7 @@ public class Euler2 implements Euler {
     @Override
     public double Solve() {
         BigInteger two = new BigInteger("2");
-        return Util.fibonacciSequence(35)
+        return StreamUtil.fibonacciSequence(35)
                 .filter(i -> i.compareTo(BigInteger.valueOf(4000000)) < 0)
                 .filter(i -> i.mod(two).equals(BigInteger.ZERO))
                 .mapToLong(BigInteger::longValue)
