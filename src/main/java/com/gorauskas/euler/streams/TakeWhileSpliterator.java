@@ -1,4 +1,4 @@
-package com.gorauskas.euler;
+package com.gorauskas.euler.streams;
 
 import java.util.Spliterator;
 import java.util.function.Consumer;
