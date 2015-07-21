@@ -1,13 +1,13 @@
 package com.gorauskas.euler.solutions;
 
 import com.gorauskas.euler.Euler;
-import com.gorauskas.euler.Util;
+import com.gorauskas.euler.streams.StreamUtil;
 
 public class Euler7 implements Euler {
 
     @Override
     public double Solve() {
-        return (double) Util.primeSequence(10001).reduce((a, b) -> b).getAsLong();
+        return (double) StreamUtil.primeSequence(10001).reduce((a, b) -> b).getAsLong();
 
         //return loopStrategy();
     }
