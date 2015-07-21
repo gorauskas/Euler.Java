@@ -1,7 +1,7 @@
 package com.gorauskas.euler.solutions;
 
 import com.gorauskas.euler.Euler;
-import com.gorauskas.euler.Util;
+import com.gorauskas.euler.streams.StreamUtil;
 
 import java.util.stream.LongStream;
 
@@ -50,7 +50,7 @@ public class Euler14 implements Euler {
     }
 
     private static long calcLen(long n) {
-        return Util.collatzSequence(n).size();
+        return StreamUtil.collatzSequence(n).size();
     }
 
     class collatzLen {
