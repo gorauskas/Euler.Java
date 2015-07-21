@@ -2,12 +2,13 @@ package com.gorauskas.euler.solutions;
 
 import com.gorauskas.euler.Euler;
 import com.gorauskas.euler.Util;
+import com.gorauskas.euler.streams.StreamUtil;
 
 public class Euler12 implements Euler {
 
     @Override
     public double Solve() {
-        return Util.triangleNumberSequence()
+        return StreamUtil.triangleNumberSequence()
                 .filter(x -> Util.numberOfDivisors(x) > 500)
                 .findFirst()
                 .getAsInt();
