@@ -90,6 +90,15 @@ public final class Util {
                         .toString());
     }
 
+    public static BigInteger factorial(long n) {
+        BigInteger f = BigInteger.ONE;
+
+        for (long i = n; i > 0; i--)
+            f = f.multiply(BigInteger.valueOf(i));
+
+        return f;
+    }
+
     public static boolean isMultipleOf(int num, int multiple) {
         return (num == 0 || multiple == 0) ? false : num % multiple == 0;
     }
