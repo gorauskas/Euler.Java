@@ -5,6 +5,18 @@ import com.gorauskas.euler.Util;
 
 public class Euler15 implements Euler {
 
+    /**
+     * This is a combinations problem. on a 20x20 grid to get from top-left to
+     * bottom-right there are 40 moves (20 down and 20 right). The problem can be
+     * solved by applying the formula for the central binomial coefficient
+     * (http://en.wikipedia.org/wiki/Central_binomial_coefficient):
+     *
+     *                x!
+     *   C(x,y) = -----------
+     *            y! * (x-y)!
+     *
+     * @return double
+     */
     @Override
     public double Solve() {
         return Util.factorial(40).divide(Util.factorial(20).multiply(Util.factorial(20))).doubleValue();
