@@ -39,6 +39,6 @@ where `#` is for the problem number. If the user requests verbose output, the
 program calls the `getProblem` method of the loaded `Euler#` class and then
 calls the `getAnswer` method.
 
-All `Euler#` classes are implemented using the `Euler` common interfacefor all
+All `Euler#` classes are implemented using the `Euler` common interface for all
 classes. This is the key construct that allows classes to be loaded and executed
 dynamically.
