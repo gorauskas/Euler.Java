@@ -2,10 +2,24 @@ package com.gorauskas.euler.solutions;
 
 import com.gorauskas.euler.Euler;
 
+import java.util.stream.LongStream;
+
 public class Euler9 implements Euler {
 
     @Override
     public double Solve() {
+        return LongStream.range(100, 1000)
+                .flatMap(a -> LongStream.range(100, 1000)
+                        .flatMap(b -> LongStream.range(100, 1000)
+                                .filter(c -> a + b + c == 1000 && ((a * a) + (b * b) == (c * c)))
+                                .map(c -> a * b * c)))
+                .findFirst()
+                .getAsLong();
+
+        //return loopStrategy();
+    }
+
+    public double loopStrategy() {
         int r = 0;
 
         for (int a = 1; a < 1000; a++) {
