@@ -93,7 +93,7 @@ public final class Util {
     public static BigInteger factorial(long n) {
         BigInteger f = BigInteger.ONE;
 
-        for (long i = n; i > 0; i--)
+        for (long i = n; i > 1; i--)
             f = f.multiply(BigInteger.valueOf(i));
 
         return f;
