@@ -7,9 +7,22 @@ import java.math.BigInteger;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
+import java.util.function.Consumer;
+
 public final class Util {
     public static boolean verbose = false;
     public static int problem = 0;
+
+    private static Consumer<Object> _oln = System.out::println;
+    private static Consumer<Object> _eln = System.err::println;
+
+    public static void out(Object msg) {
+        _oln.accept(msg);
+    }
+
+    public static void err(Object msg) {
+        _eln.accept(msg);
+    }
 
     public static void version() {
         App o = new App();
@@ -124,5 +137,9 @@ public final class Util {
                 .count() * 2;
     }
 
-
+    public static int sumOfDivisors(int n) {
+        return IntStream.range(1, n)
+                .filter(i -> n % i == 0)
+                .sum();
+    }
 }
