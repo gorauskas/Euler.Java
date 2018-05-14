@@ -72,7 +72,7 @@
                 <manifestEntries>
                   <Specification-Title>Euler.Java</Specification-Title>
                   <Specification-Version>0</Specification-Version>
-                  <Implementation-Version>1</Implementation-Version>
+                  <Implementation-Version>2</Implementation-Version>
                 </manifestEntries>
               </archive>
               <descriptorRefs>
