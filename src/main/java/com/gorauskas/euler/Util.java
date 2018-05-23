@@ -4,9 +4,9 @@ import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
 import java.math.BigInteger;
+import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
-
 import java.util.function.Consumer;
 
 public final class Util {
@@ -102,11 +102,27 @@ public final class Util {
                         .toString());
     }
 
-    public static BigInteger factorial(long n) {
+    public static int factorial(int n) {
+        return IntStream.rangeClosed(2, n)
+                .reduce(1, (x, y) -> x * y);
+    }
+
+    public static long factorial(long n) {
+        return LongStream.rangeClosed(2, n)
+                .reduce(1, (x, y) -> x * y);
+    }
+
+    public static double factorial(double n) {
+        return DoubleStream.of(LongStream.rangeClosed(2, (long)n).mapToDouble(i -> (double)i).toArray())
+                .reduce(1, (x, y) -> x * y);
+    }
+
+    public static BigInteger factorial(BigInteger n) {
         BigInteger f = BigInteger.ONE;
 
-        for (long i = n; i > 1; i--)
+        for (long i = n.longValue(); i > 1; i--) {
             f = f.multiply(BigInteger.valueOf(i));
+        }
 
         return f;
     }
