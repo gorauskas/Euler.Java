@@ -3,10 +3,12 @@ package com.gorauskas.euler.solutions;
 import com.gorauskas.euler.Euler;
 import com.gorauskas.euler.Util;
 
+import java.math.BigInteger;
+
 public class Euler20 implements Euler {
     @Override
     public double Solve() {
-        return Util.factorial(100)
+        return Util.factorial(BigInteger.valueOf(100))
                 .toString()
                 .chars()
                 .map(c -> c - 48)

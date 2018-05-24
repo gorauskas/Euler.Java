@@ -3,6 +3,8 @@ package com.gorauskas.euler.solutions;
 import com.gorauskas.euler.Euler;
 import com.gorauskas.euler.Util;
 
+import java.math.BigInteger;
+
 public class Euler15 implements Euler {
 
     /**
@@ -19,7 +21,11 @@ public class Euler15 implements Euler {
      */
     @Override
     public double Solve() {
-        return Util.factorial(40).divide(Util.factorial(20).multiply(Util.factorial(20))).doubleValue();
+
+        double moves = 40.0;
+        double dirs = 20.0;
+
+        return Util.factorial(moves) / (Util.factorial(moves - dirs) * Util.factorial(dirs));
     }
 
     @Override
