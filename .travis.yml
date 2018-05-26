@@ -3,3 +3,7 @@ jdk:
   - oraclejdk8
   - oraclejdk9
   - openjdk8
+before_install:
+  - cd java
+script:
+  - mvn clean test
