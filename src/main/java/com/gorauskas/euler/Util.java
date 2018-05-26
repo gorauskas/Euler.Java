@@ -28,24 +28,23 @@ public final class Util {
         App o = new App();
         Package p = o.getClass().getPackage();
 
-        System.out.println(
-                String.format("%s - version %s.%s",
-                        p.getSpecificationTitle(),
-                        p.getSpecificationVersion(),
-                        p.getImplementationVersion()));
+        out(String.format("%s - version %s.%s",
+                p.getSpecificationTitle(),
+                p.getSpecificationVersion(),
+                p.getImplementationVersion()));
 
         System.exit(0);
     }
 
     public static void usage(CmdLineParser p) {
-        System.out.println("Project Euler problems & solutions written in Java 8");
-        System.out.println("");
-        System.out.println(" java -jar euler.jar [-v|-V|-?] -p <number>");
-        System.out.println("");
+        out("Project Euler problems & solutions written in Java 8");
+        out("");
+        out(" java -jar euler.jar [-v|-V|-?] -p <number>");
+        out("");
         p.printUsage(System.out);
-        System.out.println("");
-        System.out.println(" Example:");
-        System.out.println("  java -jar euler.jar -v -p 1");
+        out("");
+        out(" Example:");
+        out("  java -jar euler.jar -v -p 1");
 
         System.exit(0);
     }
@@ -68,8 +67,8 @@ public final class Util {
 
         } catch (CmdLineException e) {
             if ("Option \"-p (--problem)\" is required".equals(e.getMessage())) {
-                System.out.println("Please provide a Project Euler problem number ...");
-                System.out.println("Enter java -jar euler.jar -? for usage information");
+                out("Please provide a Project Euler problem number ...");
+                out("Enter java -jar euler.jar -? for usage information");
                 System.exit(1);
             }
 
