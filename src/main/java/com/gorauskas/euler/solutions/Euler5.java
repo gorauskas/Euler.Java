@@ -1,6 +1,7 @@
 package com.gorauskas.euler.solutions;
 
 import com.gorauskas.euler.Euler;
+import com.gorauskas.euler.Util;
 
 import java.util.function.LongBinaryOperator;
 import java.util.stream.LongStream;
@@ -26,7 +27,7 @@ public class Euler5 implements Euler {
      */
     @Override
     public double Solve() {
-        LongBinaryOperator lbo = (x, y) -> x * y / gcd(x, y);
+        LongBinaryOperator lbo = (x, y) -> x * y / Util.gcd(x, y);
         return LongStream.rangeClosed(1, 20).reduce(lbo).getAsLong();
 
         //return loopStrategy();
@@ -54,10 +55,6 @@ public class Euler5 implements Euler {
         }
 
         return 0;
-    }
-
-    private long gcd(long a, long b) {
-        return b == 0 ? a : gcd(b, a % b);
     }
 
     @Override
