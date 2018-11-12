@@ -161,4 +161,24 @@ public final class Util {
     public static long gcd(long a, long b) {
         return b == 0 ? a : gcd(b, a % b);
     }
+
+    public static boolean isPanDigital(int i) {
+        int digits = 0;
+        int count = 0;
+        int tmp;
+
+        while(i > 0) {
+            tmp = digits;
+            digits = digits | 1 << (int)((i % 10) - 1);
+
+            if (tmp == digits) {
+                return false;
+            }
+
+            count++;
+            i /= 10;
+        }
+
+        return digits == (1 << count) - 1;
+    }
 }
