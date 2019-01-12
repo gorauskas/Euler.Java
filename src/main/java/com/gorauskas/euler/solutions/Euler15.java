@@ -3,8 +3,6 @@ package com.gorauskas.euler.solutions;
 import com.gorauskas.euler.Euler;
 import com.gorauskas.euler.Util;
 
-import java.math.BigInteger;
-
 public class Euler15 implements Euler {
 
     /**
