@@ -162,7 +162,7 @@ public final class Util {
         return b == 0 ? a : gcd(b, a % b);
     }
 
-    public static boolean isPanDigital(int i) {
+    public static boolean isPanDigital(long i) {
         int digits = 0;
         int count = 0;
         int tmp;
@@ -180,5 +180,16 @@ public final class Util {
         }
 
         return digits == (1 << count) - 1;
+    }
+
+    public static long concatNumbers(long a, long b) {
+        long c = b;
+
+        while (c > 0) {
+            a *= 10;
+            c /= 10;
+        }
+
+        return a + b;
     }
 }
