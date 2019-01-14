@@ -1,34 +1,38 @@
 package com.gorauskas.euler.solutions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.gorauskas.euler.Euler;
 import com.gorauskas.euler.Util;
-
-import java.util.HashSet;
-import java.util.stream.Collectors;
-import java.util.stream.LongStream;
 
 public class Euler32 implements Euler {
     @Override
     public double Solve() {
-        HashSet<Long> p = new HashSet<>();
+        List<Long> prods = new ArrayList<>();
+        long sum = 0;
+        long p, comp;
 
-        for (long l: LongStream.rangeClosed(2, 100).boxed().collect(Collectors.toList())) {
-            long start = 1234;
-            if (l > 9)
-                start = 123;
+        for (long m = 2; m < 100; m++) {
+            long nbegin = (m > 9) ? 123 : 1234;
+            long nend = 10000 / m + 1;
+            for (long n = nbegin; n < nend; n++) {
+                p = m * n;
+                comp = Util.concatNumbers(Util.concatNumbers(p, n), m);
 
-            for (long j: LongStream.rangeClosed(start, 10000 / l + 1).boxed().collect(Collectors.toList())) {
-                String s = String.valueOf(l) + String.valueOf(j) + String.valueOf(l + j);
-                Util.out(s);
-                if (Util.isPanDigital(Integer.parseInt(s))) {
-                    p.add(l * j);
-                }
+                if (comp >= 1E8 && comp < 1E9 && Util.isPanDigital(comp)) {
+                    if (!prods.contains(p)) {
+                        prods.add(p);
+                    }
+                } 
             }
         }
 
-        Util.out(p);
-        Util.out(p.stream().mapToLong(Long::longValue).sum());
-        return 45228.0;
+        for (int i = 0; i < prods.size(); i++) {
+            sum += prods.get(i);
+        }
+
+        return (double)sum;
     }
 
     @Override
