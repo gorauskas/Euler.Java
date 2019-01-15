@@ -2,6 +2,7 @@ package com.gorauskas.euler;
 
 import org.kohsuke.args4j.CmdLineException;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,6 +19,7 @@ public class App {
             ClassLoader cl = App.class.getClassLoader();
             Euler euler = (Euler) cl
                     .loadClass(App.EULER_PACKAGE + App.EULER_CLASS + Util.problem)
+                    .getDeclaredConstructor()
                     .newInstance();
 
             if (Util.verbose) {
@@ -26,7 +28,7 @@ public class App {
 
             Util.out(euler.getAnswer());
 
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+        } catch (NoSuchMethodException | InvocationTargetException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 
             Util.err("Unable to load Euler Problem class.");
             Util.err("Enter java -jar euler.jar -? for usage information");
