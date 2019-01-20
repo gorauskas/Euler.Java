@@ -4,6 +4,7 @@ import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
 import java.math.BigInteger;
+import java.util.List;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -77,8 +78,21 @@ public final class Util {
     }
 
     public static boolean isPrime(long x) {
-        return LongStream.rangeClosed(2, (long)(Math.sqrt(x)))
-                .allMatch(n -> x % n != 0);
+        if ((x & 1) == 0) {
+            if (x == 2) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        for (long k = 3; (k * k) <= x; k += 2) {
+            if ((x % k) == 0) {
+                return false;
+            }
+        }
+
+        return x != 1;
     }
 
     public static boolean isEven(int n) {
@@ -191,5 +205,17 @@ public final class Util {
         }
 
         return a + b;
+    }
+
+    public static String listToString(List<Long> l) {
+        StringBuilder sb = new StringBuilder("[");
+
+        for (Long item : l) {
+            sb.append(item);
+            sb.append(", ");
+        }
+
+        sb.append("]");
+        return sb.toString().replace(", ]", "]");
     }
 }
