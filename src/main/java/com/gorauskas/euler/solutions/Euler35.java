@@ -32,7 +32,7 @@ public class Euler35 implements Euler {
             }
         }
 
-        return L.size() - 1;
+        return L.size();
     }
 
     @Override
