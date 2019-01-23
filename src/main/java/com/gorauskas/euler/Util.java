@@ -4,6 +4,7 @@ import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
@@ -194,6 +195,16 @@ public final class Util {
         }
 
         return digits == (1 << count) - 1;
+    }
+
+    public static boolean isPanDigital(String bignum) {
+        String[] pd = {"1","2","3","4","5","6","7","8","9"};
+
+        if (bignum.length() != 9) {
+            return false;
+        }
+
+        return Arrays.stream(pd).allMatch(bignum::contains);
     }
 
     public static long concatNumbers(long a, long b) {
