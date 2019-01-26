@@ -5,6 +5,7 @@ import org.kohsuke.args4j.CmdLineParser;
 
 import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
@@ -228,5 +229,15 @@ public final class Util {
 
         sb.append("]");
         return sb.toString().replace(", ]", "]");
+    }
+
+    public static <T> String concatListAsString(Collection<T> collection) {
+        StringBuilder sb = new StringBuilder();
+
+        for (T item : collection) {
+            sb.append(item.toString());
+        }
+
+        return sb.toString();
     }
 }
