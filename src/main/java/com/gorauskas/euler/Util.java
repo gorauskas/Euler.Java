@@ -199,13 +199,19 @@ public final class Util {
     }
 
     public static boolean isPanDigital(String bignum) {
-        String[] pd = {"1","2","3","4","5","6","7","8","9"};
+        return isPanDigital(bignum, 9);
+    }
 
-        if (bignum.length() != 9) {
+    public static boolean isPanDigital(String bignum, int len) {
+        if (bignum.length() != len) {
             return false;
         }
 
-        return Arrays.stream(pd).allMatch(bignum::contains);
+        return IntStream
+                .iterate(1, n -> n + 1)
+                .takeWhile(n -> n <= len)
+                .mapToObj(String::valueOf)
+                .allMatch(bignum::contains);
     }
 
     public static long concatNumbers(long a, long b) {
