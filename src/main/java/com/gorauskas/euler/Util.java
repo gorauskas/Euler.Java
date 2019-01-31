@@ -3,10 +3,11 @@ package com.gorauskas.euler;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
+import java.io.IOException;
 import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.net.URI;
+import java.nio.file.*;
+import java.util.*;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -245,5 +246,36 @@ public final class Util {
         }
 
         return sb.toString();
+    }
+
+    public static String getDataFromFile(URI uri) {
+        String data = "";
+
+        try {
+
+            FileSystem fs;
+            Path path;
+            Map<String, String> env = new HashMap<>();
+
+            // The data file provided is packaged in the JAR with the application by Maven,
+            //   and therefore we have to switch between the 2 strategies below for opening it.
+            //   One for the tests that run unpackaged, another for running within the packaged jar.
+            if (uri.toString().contains("!")) {
+                String[] p = uri.toString().split("!");
+                fs = FileSystems.newFileSystem(URI.create(p[0]), env);
+                path = fs.getPath(p[1]);
+            } else {
+                path = Paths.get(uri);
+            }
+
+            data = Files.readAllLines(path).get(0);
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+        return data;
     }
 }
