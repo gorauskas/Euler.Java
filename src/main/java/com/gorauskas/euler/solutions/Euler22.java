@@ -2,19 +2,12 @@ package com.gorauskas.euler.solutions;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.io.IOException;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import com.gorauskas.euler.Euler;
+import com.gorauskas.euler.Util;
 
 public class Euler22 implements Euler {
     @Override
@@ -23,23 +16,8 @@ public class Euler22 implements Euler {
         double result = 0;
        
         try {
-            FileSystem fs;
-            Path path;
-            Map<String, String> env = new HashMap<>();
             URI uri = getClass().getResource("/p022_names.txt").toURI();
-            
-            // The data file provided is packaged in the JAR with the application by Maven,
-            //   and therefore we have to switch between the 2 strategies below for opening it.
-            //   One for the tests that run unpackaged, another for running within the packaged jar.
-            if (uri.toString().contains("!")) {
-                String[] p = uri.toString().split("!");
-                fs = FileSystems.newFileSystem(URI.create(p[0]), env);
-                path = fs.getPath(p[1]);
-            } else {
-                path = Paths.get(uri);
-            }
-            
-            String data = Files.readAllLines(path).get(0);
+            String data = Util.getDataFromFile(uri);
             int pos = 1;
             
             List<String> names = Stream.of(data.split(","))  
@@ -52,7 +30,7 @@ public class Euler22 implements Euler {
                 result += this.getNameScore(name, pos);
                 pos++;
             }
-        } catch (IOException | URISyntaxException e) {
+        } catch (URISyntaxException e) {
             e.printStackTrace();
         }
             
