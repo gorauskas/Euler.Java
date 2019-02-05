@@ -226,10 +226,10 @@ public final class Util {
         return a + b;
     }
 
-    public static String listToString(List<Long> l) {
+    public static <T> String listToString(Collection<T> collection) {
         StringBuilder sb = new StringBuilder("[");
 
-        for (Long item : l) {
+        for (T item : collection) {
             sb.append(item);
             sb.append(", ");
         }
