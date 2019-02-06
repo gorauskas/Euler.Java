@@ -12,11 +12,12 @@ public final class StreamUtil {
         return StreamSupport.stream(TakeWhileSpliterator.over(source.spliterator(), condition), false);
     }
 
-    public static LongStream primeSequence(long max) {
-        return LongStream.iterate(2, i -> i + 1)
-                .filter(x -> Util.isPrime(x))
-                .limit(max);
+    // return the prime numbers that are more than min and less then max
+    public static LongStream primeSequence(long min, long max) {
+        return LongStream.range(min, max).filter(Util::isPrime);
     }
+
+    public static LongStream primeSequence(long max) { return primeSequence(2L, max); }
 
     public static LongStream primeSequence() { return primeSequence(Long.MAX_VALUE); }
 
