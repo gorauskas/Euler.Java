@@ -3,28 +3,16 @@ package com.gorauskas.euler.solutions;
 import com.gorauskas.euler.Euler;
 import com.gorauskas.euler.streams.StreamUtil;
 
+import java.util.stream.Collectors;
+
 public class Euler7 implements Euler {
 
     @Override
     public double Solve() {
-        return (double) StreamUtil.primeSequence(10001).reduce((a, b) -> b).getAsLong();
-
-        //return loopStrategy();
-    }
-
-    public double loopStrategy() {
-        long n = 0, p = 1;
-
-        while (p < 10000) {
-            ++n;
-            for (int i = 2; i <= (long)Math.sqrt(n) && n % i != 0; i++) {
-                if (i == (int)Math.sqrt(n)) {
-                    p++;
-                }
-            }
-        }
-
-        return n;
+        return (double) StreamUtil.primeSequence(105000)
+                .boxed()
+                .collect(Collectors.toList())
+                .get(10000); // index is 0 based
     }
 
     @Override
