@@ -4,12 +4,16 @@ import com.gorauskas.euler.Euler;
 import com.gorauskas.euler.Util;
 
 import java.util.stream.LongStream;
+import com.gorauskas.euler.streams.StreamUtil;
 
 public class Euler10 implements Euler {
 
     @Override
     public double Solve() {
-        return LongStream.range(2, 2000000).filter(Util::isPrime).sum();
+
+        // return LongStream.range(2, 2000000).filter(Util::isPrime).sum();
+
+        return StreamUtil.primeSequence(2000000).sum();
     }
 
     @Override
