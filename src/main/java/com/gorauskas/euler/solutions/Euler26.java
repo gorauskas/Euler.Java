@@ -18,7 +18,7 @@ public class Euler26 implements Euler {
 
     @Override
     public double Solve() {
-        List<Long> ps = primeSequence(168).boxed().collect(Collectors.toList());
+        List<Long> ps = primeSequence(1000).boxed().collect(Collectors.toList());
         Collections.reverse(ps);
         int seqlen = 0;
 
