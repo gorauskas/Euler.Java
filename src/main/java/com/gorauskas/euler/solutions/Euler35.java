@@ -6,7 +6,7 @@ import com.gorauskas.euler.Util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.LongStream;
+import com.gorauskas.euler.streams.StreamUtil;
 
 public class Euler35 implements Euler {
     @Override
@@ -14,9 +14,7 @@ public class Euler35 implements Euler {
         // resulting list of circular primes
         List<Long> L = new ArrayList<>();
         // all primes less than 1 million
-        List<Long> primes = LongStream
-                .rangeClosed(1, 999999)
-                .filter(x -> Util.isPrime(x))
+        List<Long> primes = StreamUtil.primeSequence(1000000)
                 .boxed()
                 .collect(Collectors.toList());
 
