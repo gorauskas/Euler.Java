@@ -6,16 +6,14 @@ import com.gorauskas.euler.Util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.LongStream;
+import com.gorauskas.euler.streams.StreamUtil;
 
 public class Euler37 implements Euler {
     @Override
     public double Solve() {
         List<Long> L = new ArrayList<>();
-        // single digit number we don't care for
-        List<Long> primes = LongStream
-                .rangeClosed(10, 999999)
-                .filter(x -> Util.isPrime(x))
+
+        List<Long> primes = StreamUtil.primeSequence(10, 1000000)
                 .boxed()
                 .collect(Collectors.toList());
 
