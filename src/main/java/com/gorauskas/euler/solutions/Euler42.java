@@ -7,15 +7,15 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import com.gorauskas.euler.streams.StreamUtil;
 
 public class Euler42 implements Euler {
 
     @Override
     public double Solve() {
         int count = 0;
-        List<Integer> triangleNums = IntStream.rangeClosed(1, 100).map(n -> (int)(0.5 * n * (n + 1))).boxed().collect(Collectors.toList());
+        List<Integer> triangleNums = StreamUtil.triangleNumberSequence(100).boxed().collect(Collectors.toList());
 
         try {
             URI uri = getClass().getResource("/p042_words.txt").toURI();
