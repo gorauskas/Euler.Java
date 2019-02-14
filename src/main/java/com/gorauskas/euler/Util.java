@@ -248,6 +248,10 @@ public final class Util {
         return sb.toString();
     }
 
+    public static <T> long concatListAsNumber(Collection<T> collection) {
+        return Long.parseLong(concatListAsString(collection));
+    }
+
     public static String getDataFromFile(URI uri) {
         String data = "";
 
