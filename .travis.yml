@@ -2,5 +2,4 @@ language: java
 jdk:
   - oraclejdk11
 script:
-  - mvn clean install
-  - mvn clean test
+  - mvn clean install test
