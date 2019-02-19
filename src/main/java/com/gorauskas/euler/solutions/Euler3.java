@@ -9,7 +9,7 @@ public class Euler3 implements Euler {
 
     @Override
     public double Solve() {
-        long n = 600851475143l;
+        var n = 600851475143l;
         return LongStream.rangeClosed(2, 775164)
                 .filter(i -> n % i == 0 && Util.isPrime(i))
                 .max()
@@ -18,20 +18,18 @@ public class Euler3 implements Euler {
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 3:\n")
                 .append("\n")
                 .append("  The prime factors of 13195 are 5, 7, 13 and 29.\n")
                 .append("\n")
                 .append("  What is the largest prime factor of the number 600851475143 ?\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("The largest prime factor of the number 600851475143 is: %s"
+        return String.format("The largest prime factor of the number 600851475143 is: %s"
                 , this.Solve());
-        return s;
     }
 }
