@@ -56,9 +56,8 @@ public class Euler11 implements Euler {
     @Override
     public String getAnswer() {
         StringMatrix sm = new StringMatrix(this.getStringMatrix());
-        String s = String.format("The greatest product of four adjacent numbers in the grid is:\n" +
+        return String.format("The greatest product of four adjacent numbers in the grid is:\n" +
                 "P: %s; Loc: %s,%s; Seq: %s\n", sm.getProduct(), sm.getX(), sm.getY(), sm.getSequence());
-        return s;
     }
 
     class StringMatrix {
@@ -148,14 +147,14 @@ public class Euler11 implements Euler {
         }
 
         private void calculateGreatestProductOfFourAdjacentNumbers() {
-            List<Integer> js = IntStream.range(3, 17).boxed().collect(Collectors.toList());
-            List<Integer> ks = IntStream.range(3, 17).boxed().collect(Collectors.toList());
+            var js = IntStream.range(3, 17).boxed().collect(Collectors.toList());
+            var ks = IntStream.range(3, 17).boxed().collect(Collectors.toList());
             IntBinaryOperator ibo = (a, b) -> a * b;
 
             for (int j: js) {
                 for (int k: ks) {
                     for (Orientation o: Arrays.asList(Orientation.values())) {
-                        List<Integer> l = this.getAdjacentList(o, j, k);
+                        var l = this.getAdjacentList(o, j, k);
                         if (l.stream().mapToInt(Integer::valueOf).reduce(ibo).getAsInt() > this.product) {
                             this.product = l.stream().mapToInt(Integer::valueOf).reduce(ibo).getAsInt();
                             this.seq = l;
