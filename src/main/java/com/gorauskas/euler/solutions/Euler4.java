@@ -40,7 +40,7 @@ public class Euler4 implements Euler {
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 4:\n")
                 .append("\n")
                 .append("   A palindromic number reads the same both ways. The largest palindrome made\n")
@@ -48,13 +48,11 @@ public class Euler4 implements Euler {
                 .append("\n")
                 .append("   Find the largest palindrome made from the product of two 3-digit numbers.\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("The largest palindrome made of the product of two 3 digit numbers is %s"
+        return String.format("The largest palindrome made of the product of two 3 digit numbers is %s"
                 , this.Solve());
-        return s;
     }
 }
