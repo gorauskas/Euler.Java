@@ -17,7 +17,7 @@ public class Euler7 implements Euler {
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 7:\n")
                 .append("\n")
                 .append("   By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13,\n")
@@ -25,13 +25,11 @@ public class Euler7 implements Euler {
                 .append("\n")
                 .append("   What is the 10001st prime number?\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("Prime 10001 is %s"
+        return String.format("Prime 10001 is %s"
                 , this.Solve());
-        return s;
     }
 }
