@@ -8,8 +8,8 @@ public class Euler6 implements Euler {
 
     @Override
     public double Solve() {
-        double sumOfSqr = Math.pow((double)LongStream.rangeClosed(1, 100).sum(), 2.0);
-        double sqrOfSum = (double)LongStream.rangeClosed(1, 100)
+        var sumOfSqr = Math.pow((double)LongStream.rangeClosed(1, 100).sum(), 2.0);
+        var sqrOfSum = (double)LongStream.rangeClosed(1, 100)
                 .map(x -> (long)(Math.pow((double)x, 2.0)))
                 .sum();
 
@@ -34,7 +34,7 @@ public class Euler6 implements Euler {
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 6:\n")
                 .append("\n")
                 .append("   The sum of the squares of the first ten natural numbers is,\n")
@@ -52,14 +52,12 @@ public class Euler6 implements Euler {
                 .append("   Find the difference between the sum of the squares of the \n")
                 .append("   first one hundred natural numbers and the square of the sum.\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("The difference between the sum of the squares\n" +
+        return String.format("The difference between the sum of the squares\n" +
                 "and the square of the sum of the first 100 numbers\n" +
                 "is: %s", (long)this.Solve());
-        return s;
     }
 }
