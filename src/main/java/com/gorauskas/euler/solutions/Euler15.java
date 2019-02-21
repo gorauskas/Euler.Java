@@ -19,16 +19,15 @@ public class Euler15 implements Euler {
      */
     @Override
     public double Solve() {
-
-        double moves = 40.0;
-        double dirs = 20.0;
+        var moves = 40.0;
+        var dirs = 20.0;
 
         return Util.factorial(moves) / (Util.factorial(moves - dirs) * Util.factorial(dirs));
     }
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 15:\n")
                 .append("\n")
                 .append("    Starting in the top left corner of a 2x2 grid, there are 6 routes\n")
@@ -36,13 +35,11 @@ public class Euler15 implements Euler {
                 .append("\n")
                 .append("    How many routes are there through a 20x20 grid?\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("There are %s routes through a 20x20 grid"
+        return String.format("There are %s routes through a 20x20 grid"
                 , (long)this.Solve());
-        return s;
     }
 }
