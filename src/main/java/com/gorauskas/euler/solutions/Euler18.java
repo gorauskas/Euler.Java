@@ -14,7 +14,7 @@ public class Euler18 implements Euler {
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 18:\n")
                 .append("\n")
                 .append("    By starting at the top of the triangle below and moving to adjacent numbers \n")
@@ -45,14 +45,12 @@ public class Euler18 implements Euler {
                 .append("     63 66 04 68 89 53 67 30 73 16 69 87 40 31\n")
                 .append("    04 62 98 27 23 09 70 98 73 93 38 53 60 04 23\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("The maximum sum travelling from the top of the triangle to the base is: %s"
+        return String.format("The maximum sum travelling from the top of the triangle to the base is: %s"
                 , (long) this.Solve());
-        return s;
     }
 
     private String getData() {
@@ -84,12 +82,12 @@ public class Euler18 implements Euler {
      * @return A List of List of Integer
      */
     private List<List<Integer>> getTriangle(String data) {
-        List<String> y = Arrays.asList(data.split("\n"));
+        var y = Arrays.asList(data.split("\n"));
         List<List<Integer>> lli = new ArrayList<>();
 
         for (String ys : y) {
             List<Integer> li = new ArrayList<>();
-            List<String> x = Arrays.asList(ys.split(" "));
+            var x = Arrays.asList(ys.split(" "));
 
             for (String xs : x)
                 li.add(Integer.valueOf(xs));
@@ -107,7 +105,7 @@ public class Euler18 implements Euler {
      * @return The max sum of the trip from the top
      */
     private int findMaxSum(List<List<Integer>> triangle) {
-        List<List<Integer>> t = triangle;
+        var t = triangle;
 
         while (t.size() > 1)
             t = reduceTriangle(t);
