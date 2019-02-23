@@ -22,13 +22,13 @@ public class Euler25 implements Euler {
      */
     @Override
     public double Solve() {
-        double phi = (1 + sqrt(5)) / 2;
+        var phi = (1 + sqrt(5)) / 2;
         return ceil((log10(5) / 2 + 1000 - 1) / log10(phi));
     }
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 25\n")
                 .append("\n")
                 .append("    The Fibonacci sequence is defined by the recurrence relation:\n")
@@ -54,13 +54,11 @@ public class Euler25 implements Euler {
                 .append("\n")
                 .append("    What is the first term in the Fibonacci sequence to contain 1000 digits?\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("The first number in the Fibonacci sequence to contain 1000 digits is %s\n"
+        return String.format("The first number in the Fibonacci sequence to contain 1000 digits is %s\n"
                 , (long)this.Solve());
-        return s;
     }
 }
