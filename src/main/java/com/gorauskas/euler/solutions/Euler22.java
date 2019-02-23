@@ -1,8 +1,6 @@
 package com.gorauskas.euler.solutions;
 
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -13,20 +11,20 @@ public class Euler22 implements Euler {
     @Override
     public double Solve() {
         
-        double result = 0;
+        var result = 0;
        
         try {
-            URI uri = getClass().getResource("/p022_names.txt").toURI();
-            String data = Util.getDataFromFile(uri);
-            int pos = 1;
+            var uri = getClass().getResource("/p022_names.txt").toURI();
+            var data = Util.getDataFromFile(uri);
+            var pos = 1;
             
-            List<String> names = Stream.of(data.split(","))  
+            var names = Stream.of(data.split(","))
                     .map(i -> new String(i))                 
                     .map(i -> i.replace("\"", ""))           
                     .sorted()                                
                     .collect(Collectors.toList());           
 
-            for (String name: names) {
+            for (var name: names) {
                 result += this.getNameScore(name, pos);
                 pos++;
             }
@@ -47,7 +45,7 @@ public class Euler22 implements Euler {
     
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 22\n")
                 .append("\n")
                 .append("    Using names.txt (right click and 'Save Link/Target As...'), a 46K text\n")
@@ -62,13 +60,11 @@ public class Euler22 implements Euler {
                 .append("\n")
                 .append("    What is the total of all the name scores in the file?\n")
                 .toString();
-        return s;
     }
     
     @Override
     public String getAnswer() {
-        String s = String.format("The total of all the name scores in the file is %s"
+        return String.format("The total of all the name scores in the file is %s"
                 , (long)this.Solve());
-        return s;
     }
 }
