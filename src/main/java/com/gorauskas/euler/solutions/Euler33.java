@@ -6,7 +6,7 @@ public class Euler33 implements Euler {
 
     @Override
     public double Solve() {
-        double d = 1.0;
+        var d = 1.0;
 
         for (int i = 1; i < 10; i++) {
             for (int j = 1; j < i; j++) {
