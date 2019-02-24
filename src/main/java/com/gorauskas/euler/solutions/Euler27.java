@@ -7,15 +7,17 @@ public class Euler27 implements Euler {
     @Override
     public double Solve() {
 
-        int max = 0, res = 0;
+        var max = 0;
+        var res = 0;
 
         for (int x = -999; x <= 999; x++) {
             for (int y = -999; y <= 999; y++) {
-                boolean done = false;
-                int count = 0;
+                var done = false;
+                var count = 0;
 
                 while (!done) {
-                    int num = count * count + x * count + y;
+                    var num = count * count + x * count + y;
+
                     if (num > 0 && Util.isPrime(num)) {
                         count++;
                     } else {
@@ -35,7 +37,7 @@ public class Euler27 implements Euler {
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 27\n")
                 .append("\n")
                 .append("    Euler discovered the remarkable quadratic formula:\n")
@@ -62,13 +64,11 @@ public class Euler27 implements Euler {
                 .append("    that produces the maximum number of primes for consecutive values of n,\n")
                 .append("    starting with n=0.\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("The product of the coefficients, a and b, for the quadratic expression that produces\n" +
+        return String.format("The product of the coefficients, a and b, for the quadratic expression that produces\n" +
                 "the maximum number of primes for consecutive values of n is %s\n", (long)this.Solve());
-        return s;
     }
 }
