@@ -5,7 +5,6 @@ import com.gorauskas.euler.Euler;
 import static com.gorauskas.euler.streams.StreamUtil.primeSequence;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -18,17 +17,17 @@ public class Euler26 implements Euler {
 
     @Override
     public double Solve() {
-        List<Long> ps = primeSequence(1000).boxed().collect(Collectors.toList());
+        var ps = primeSequence(1000).boxed().collect(Collectors.toList());
         Collections.reverse(ps);
-        int seqlen = 0;
+        var seqlen = 0;
 
         for (Long p: ps) {
             if (seqlen >= p)
                 break;
 
-            int[] rems = new int[p.intValue()];
-            int val = 1;
-            int pos = 0;
+            var rems = new int[p.intValue()];
+            var val = 1;
+            var pos = 0;
 
             while (rems[val] == 0 && val != 0) {
                 rems[val] = pos;
