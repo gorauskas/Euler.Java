@@ -12,13 +12,13 @@ public class Euler35 implements Euler {
     @Override
     public double Solve() {
         // resulting list of circular primes
-        List<Long> L = new ArrayList<>();
+        var L = new ArrayList<>();
         // all primes less than 1 million
-        List<Long> primes = StreamUtil.primeSequence(1000000)
+        var primes = StreamUtil.primeSequence(1000000)
                 .boxed()
                 .collect(Collectors.toList());
 
-        for (long prime : primes) {
+        for (var prime : primes) {
             if (checkRotations(String.valueOf(prime)
                     .chars()
                     .mapToLong(x -> x - 48)
@@ -58,12 +58,12 @@ public class Euler35 implements Euler {
     //   l = a list of digits that makes up the prime nunber n
     //   n = The prime number to check
     private boolean checkRotations(List<Long> l, long n) {
-        long k = 0L;
+        var k = 0L;
 
         while (n != k) {
             // as in Lisp car and cdr
-            List<Long> cdr = l.stream().skip(1).limit(l.size() - 1).collect(Collectors.toList());  // the rest of the list
-            long car = l.get(0);  // the first item
+            var cdr = l.stream().skip(1).limit(l.size() - 1).collect(Collectors.toList());  // the rest of the list
+            var car = l.get(0);  // the first item
 
             cdr.add(car); // add first item to the end to rotate
 
