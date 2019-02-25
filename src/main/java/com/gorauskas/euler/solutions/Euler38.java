@@ -6,18 +6,17 @@ import com.gorauskas.euler.Util;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Euler38 implements Euler {
     @Override
     public double Solve() {
-        List<BigInteger> lbi = new ArrayList<>();
+        var lbi = new ArrayList<BigInteger>();
 
-        for (int n : IntStream.rangeClosed(1, 9999).boxed().collect(Collectors.toList())) {
-            for (int m : IntStream.rangeClosed(1, 9).boxed().collect(Collectors.toList())) {
-                BigInteger bi = concatenatedProduct(n, m);
+        for (var n : IntStream.rangeClosed(1, 9999).boxed().collect(Collectors.toList())) {
+            for (var m : IntStream.rangeClosed(1, 9).boxed().collect(Collectors.toList())) {
+                var bi = concatenatedProduct(n, m);
 
                 if (Util.isPanDigital(bi.toString())) {
                     lbi.add(bi);
@@ -57,9 +56,9 @@ public class Euler38 implements Euler {
     }
 
     private BigInteger concatenatedProduct(int n, int m) {
-        List<String> ls = new ArrayList<>();
+        var ls = new ArrayList<String>();
 
-        for (int i : IntStream.rangeClosed(1, m + 1).boxed().collect(Collectors.toList())) {
+        for (var i : IntStream.rangeClosed(1, m + 1).boxed().collect(Collectors.toList())) {
             ls.add(String.valueOf(n * i));
         }
 
