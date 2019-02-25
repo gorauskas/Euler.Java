@@ -2,22 +2,18 @@ package com.gorauskas.euler.solutions;
 
 import com.gorauskas.euler.Euler;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class Euler34 implements Euler {
-
 
     @Override
     public double Solve() {
         //pre - calculated factorials from 1 to 9
-        List<Integer> fact = Arrays.asList(1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880);
-        List<Integer> range = IntStream.rangeClosed(10, 49989).boxed().collect(Collectors.toList());
-        long r = 0;
+        var fact = Arrays.asList(1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880);
+        var range = IntStream.rangeClosed(10, 49989).boxed().collect(Collectors.toList());
+        var r = 0;
 
         for (int n : range) {
             long x = String.valueOf(n)
