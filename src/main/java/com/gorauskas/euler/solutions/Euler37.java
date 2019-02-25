@@ -4,20 +4,19 @@ import com.gorauskas.euler.Euler;
 import com.gorauskas.euler.Util;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 import com.gorauskas.euler.streams.StreamUtil;
 
 public class Euler37 implements Euler {
     @Override
     public double Solve() {
-        List<Long> L = new ArrayList<>();
+        var L = new ArrayList<Long>();
 
-        List<Long> primes = StreamUtil.primeSequence(10, 1000000)
+        var primes = StreamUtil.primeSequence(10, 1000000)
                 .boxed()
                 .collect(Collectors.toList());
 
-        for (Long prime : primes) {
+        for (var prime : primes) {
             if (IsTruncatable(prime)) {
                 L.add(prime);
             }
@@ -54,7 +53,7 @@ public class Euler37 implements Euler {
     }
 
     private boolean IsTruncatable(long n) {
-        long m = n;
+        var m = n;
         while (m > 0) {          // truncate right - divide by 10
             if (!Util.isPrime(m)) {
                 return false;
@@ -63,7 +62,7 @@ public class Euler37 implements Euler {
             m /= 10;
         }
 
-        long k = 10;             // truncate left - mod by 10, 100, 1000, n
+        var k = 10;             // truncate left - mod by 10, 100, 1000, n
         for (int x = 0; x < String.valueOf(n).length(); x++) {
             if (!Util.isPrime(n % k)) {
                 return false;
