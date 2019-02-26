@@ -6,7 +6,7 @@ import com.gorauskas.euler.Util;
 public class Euler41 implements Euler {
     @Override
     public double Solve() {
-        long n = 7654321;
+        var n = 7654321;
 
         while (!(Util.isPrime(n) && Util.isPanDigital(String.valueOf(n), 7))) {
             n -= 2;
