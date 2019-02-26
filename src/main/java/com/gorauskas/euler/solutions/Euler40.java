@@ -3,15 +3,14 @@ package com.gorauskas.euler.solutions;
 import com.gorauskas.euler.Euler;
 import com.gorauskas.euler.Util;
 
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Euler40 implements Euler {
     @Override
     public double Solve() {
-        List<Integer> L = IntStream.rangeClosed(0, 1000000).boxed().collect(Collectors.toList());
-        String LS = Util.concatListAsString(L);
+        var L = IntStream.rangeClosed(0, 1000000).boxed().collect(Collectors.toList());
+        var LS = Util.concatListAsString(L);
 
         return Integer.parseInt(Character.toString(LS.charAt(1))) *
                 Integer.parseInt(Character.toString(LS.charAt(10))) *
