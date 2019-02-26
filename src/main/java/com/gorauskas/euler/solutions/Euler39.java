@@ -5,13 +5,13 @@ import com.gorauskas.euler.Euler;
 public class Euler39 implements Euler {
     @Override
     public double Solve() {
-        long result = 0;
-        long resultSolutions = 0;
+        var result = 0l;
+        var resultSolutions = 0l;
 
-        for (long p = 2; p <= 1000; p += 2) {
-            int numberOfSolutions = 0;
+        for (var p = 2; p <= 1000; p += 2) {
+            var numberOfSolutions = 0;
 
-            for (long a = 2; a < (p / 3); a++) {
+            for (var a = 2; a < (p / 3); a++) {
                 if (p * (p - 2 * a) % (2 * (p - a)) == 0) {
                     numberOfSolutions++;
                 }
@@ -28,7 +28,7 @@ public class Euler39 implements Euler {
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 39\n")
                 .append("\n")
                 .append("    If p is the perimeter of a right angle triangle with integral length sides,\n")
@@ -38,7 +38,6 @@ public class Euler39 implements Euler {
                 .append("\n")
                 .append("    For which value of p ≤ 1000, is the number of solutions maximised?\n")
                 .toString();
-        return s;
     }
 
     @Override
