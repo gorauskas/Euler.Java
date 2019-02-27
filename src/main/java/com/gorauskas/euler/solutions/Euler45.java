@@ -2,20 +2,18 @@ package com.gorauskas.euler.solutions;
 
 import com.gorauskas.euler.Euler;
 
-import java.util.List;
-import java.util.Set;
-import java.util.function.Function;
+import java.util.function.LongUnaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
 public class Euler45 implements Euler {
     @Override
     public double Solve() {
-        List<Long> tlist = LongStream.rangeClosed(1, 99999).map(x -> fnTri.apply(x)).boxed().collect(Collectors.toList());
-        Set<Long> pset = LongStream.rangeClosed(1, 99999).map(x -> fnPenta.apply(x)).boxed().collect(Collectors.toSet());
-        Set<Long> hset = LongStream.rangeClosed(1, 99999).map(x -> fnHex.apply(x)).boxed().collect(Collectors.toSet());
+        var tlist = LongStream.rangeClosed(1, 99999).map(x -> fnTri.applyAsLong(x)).boxed().collect(Collectors.toList());
+        var pset = LongStream.rangeClosed(1, 99999).map(x -> fnPenta.applyAsLong(x)).boxed().collect(Collectors.toSet());
+        var hset = LongStream.rangeClosed(1, 99999).map(x -> fnHex.applyAsLong(x)).boxed().collect(Collectors.toSet());
 
-        for (long item : tlist) {
+        for (var item : tlist) {
             if (pset.contains(item) && hset.contains(item)) {
                 if (item > 40755) {
                     return item;
@@ -50,7 +48,7 @@ public class Euler45 implements Euler {
                 (long)this.Solve());
     }
 
-    private Function<Long, Long> fnTri = x -> x * (x + 1) / 2;
-    private Function<Long, Long> fnPenta = x -> x * (3 * x - 1) / 2;
-    private Function<Long, Long> fnHex = x -> x * (2 * x - 1);
+    private LongUnaryOperator fnTri = x -> x * (x + 1) / 2;
+    private LongUnaryOperator fnPenta = x -> x * (3 * x - 1) / 2;
+    private LongUnaryOperator fnHex = x -> x * (2 * x - 1);
 }
