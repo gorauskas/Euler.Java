@@ -29,8 +29,8 @@ public final class Util {
     }
 
     public static void version() {
-        App o = new App();
-        Package p = o.getClass().getPackage();
+        var o = new App();
+        var p = o.getClass().getPackage();
 
         out(String.format("%s - version %s.%s",
                 p.getSpecificationTitle(),
@@ -41,7 +41,7 @@ public final class Util {
     }
 
     public static void usage(CmdLineParser p) {
-        out("Project Euler problems & solutions written in Java 8");
+        out("Project Euler problems & solutions written in Java 11");
         out("");
         out(" java -jar euler.jar [-v|-V|-?] -p <number>");
         out("");
@@ -54,8 +54,8 @@ public final class Util {
     }
 
     public static void parseOptions(String args[]) throws CmdLineException {
-        Options opt = new Options();
-        CmdLineParser p = new CmdLineParser(opt);
+        var opt = new Options();
+        var p = new CmdLineParser(opt);
 
         try {
             p.parseArgument(args);
@@ -135,7 +135,7 @@ public final class Util {
     }
 
     public static BigInteger factorial(BigInteger n) {
-        BigInteger f = BigInteger.ONE;
+        var f = BigInteger.ONE;
 
         for (long i = n.longValue(); i > 1; i--) {
             f = f.multiply(BigInteger.valueOf(i));
@@ -180,9 +180,9 @@ public final class Util {
     }
 
     public static boolean isPanDigital(long i) {
-        int digits = 0;
-        int count = 0;
-        int tmp;
+        var digits = 0;
+        var count = 0;
+        var tmp = 0;
 
         while(i > 0) {
             tmp = digits;
@@ -216,7 +216,7 @@ public final class Util {
     }
 
     public static long concatNumbers(long a, long b) {
-        long c = b;
+        var c = b;
 
         while (c > 0) {
             a *= 10;
@@ -227,7 +227,7 @@ public final class Util {
     }
 
     public static <T> String listToString(Collection<T> collection) {
-        StringBuilder sb = new StringBuilder("[");
+        var sb = new StringBuilder("[");
 
         for (T item : collection) {
             sb.append(item);
@@ -239,7 +239,7 @@ public final class Util {
     }
 
     public static <T> String concatListAsString(Collection<T> collection) {
-        StringBuilder sb = new StringBuilder();
+        var sb = new StringBuilder();
 
         for (T item : collection) {
             sb.append(item.toString());
@@ -253,7 +253,7 @@ public final class Util {
     }
 
     public static String getDataFromFile(URI uri) {
-        String data = "";
+        var data = "";
 
         try {
 
