@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/gorauskas/Euler.Java.svg?branch=master)](https://travis-ci.org/gorauskas/Euler.Java)
 
-Solutions to the Project Euler problems written in Java 8.
+Solutions to the Project Euler problems written in Java 11.
 
 Clone this repo and then run the following from the command line:
 
@@ -11,7 +11,7 @@ Clone this repo and then run the following from the command line:
 
 ## Usage
 
-    Project Euler problems & solutions written in Java 8
+    Project Euler problems & solutions written in Java 11
 
      java -jar euler.jar [-v|-V|-?] -p <number>
 
