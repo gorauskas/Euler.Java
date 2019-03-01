@@ -282,4 +282,20 @@ public final class Util {
 
         return data;
     }
+
+    public static List<Long> factors(long l) {
+        var ll = new ArrayList<Long>();
+
+        for (long factor = 1; factor * factor <= l; factor++) {
+            if (l % factor == 0) {
+                ll.add(factor);
+
+                if (factor * factor != l) {
+                    ll.add(l / factor);
+                }
+            }
+        }
+
+        return ll;
+    }
 }
