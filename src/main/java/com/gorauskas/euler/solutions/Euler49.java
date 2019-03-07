@@ -3,7 +3,6 @@ package com.gorauskas.euler.solutions;
 import com.gorauskas.euler.Euler;
 import com.gorauskas.euler.Util;
 
-import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
@@ -19,8 +18,8 @@ public class Euler49 implements Euler {
             z = y + 3330;
 
             if (Util.isPrime(x) && Util.isPrime(y) && Util.isPrime(z)) {
-                if (sorted(String.valueOf(y)).equals(sorted(String.valueOf(x))) &&
-                        sorted(String.valueOf(z)).equals(sorted(String.valueOf(x)))) {
+                if (Util.sorted(String.valueOf(y)).equals(Util.sorted(String.valueOf(x))) &&
+                        Util.sorted(String.valueOf(z)).equals(Util.sorted(String.valueOf(x)))) {
 
                     // if the numbers are permutations of one another then sorting them
                     // byt digit ascending makes them equal.
@@ -55,11 +54,5 @@ public class Euler49 implements Euler {
     @Override
     public String getAnswer() {
         return String.format("The 12-digit number is %s", (long)this.Solve());
-    }
-
-    private String sorted(String s) {
-        char[] c = s.toCharArray();
-        Arrays.sort(c);
-        return new String(c);
     }
 }

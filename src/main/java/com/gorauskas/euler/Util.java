@@ -298,4 +298,10 @@ public final class Util {
 
         return ll;
     }
+
+    public static String sorted(String s) {
+        char[] c = s.toCharArray();
+        Arrays.sort(c);
+        return new String(c);
+    }
 }
