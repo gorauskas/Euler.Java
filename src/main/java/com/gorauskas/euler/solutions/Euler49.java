@@ -9,7 +9,7 @@ import java.util.stream.LongStream;
 public class Euler49 implements Euler {
     @Override
     public double Solve() {
-        long x = 0, y = 0, z = 0;
+        long x, y, z;
         String str = "";
 
         for (var item : LongStream.rangeClosed(1000, 3000).boxed().collect(Collectors.toList())) {
@@ -22,8 +22,8 @@ public class Euler49 implements Euler {
                         Util.sorted(String.valueOf(z)).equals(Util.sorted(String.valueOf(x)))) {
 
                     // if the numbers are permutations of one another then sorting them
-                    // byt digit ascending makes them equal.
-                    str = String.valueOf(x) + String.valueOf(y) + String.valueOf(z);
+                    // by digit ascending makes them equal.
+                    str = String.valueOf(x) + y + z;
 
                 }
             }
