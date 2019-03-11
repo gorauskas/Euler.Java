@@ -20,9 +20,10 @@ public class Euler22 implements Euler {
             
             var names = Stream.of(data.split(","))
                     .map(i -> new String(i))                 
-                    .map(i -> i.replace("\"", ""))           
+                    .map(i -> i.replace("\"", ""))
+                    .map(i -> i.replace("\n", ""))
                     .sorted()                                
-                    .collect(Collectors.toList());           
+                    .collect(Collectors.toList());
 
             for (var name: names) {
                 result += this.getNameScore(name, pos);
