@@ -17,7 +17,7 @@ public class Euler20 implements Euler {
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 20\n")
                 .append("\n")
                 .append("    n! means n × (n − 1) × ... × 3 × 2 × 1\n")
@@ -27,13 +27,11 @@ public class Euler20 implements Euler {
                 .append("\n")
                 .append("    Find the sum of the digits in the number 100!\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("The sum of the digits in the number 100! is %s"
+        return String.format("The sum of the digits in the number 100! is %s"
                 , (long)this.Solve());
-        return s;
     }
 }

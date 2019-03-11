@@ -3,9 +3,7 @@ package com.gorauskas.euler.solutions;
 import com.gorauskas.euler.Euler;
 import com.gorauskas.euler.Util;
 
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import com.gorauskas.euler.streams.StreamUtil;
@@ -14,19 +12,19 @@ public class Euler42 implements Euler {
 
     @Override
     public double Solve() {
-        int count = 0;
-        List<Integer> triangleNums = StreamUtil.triangleNumberSequence(100).boxed().collect(Collectors.toList());
+        var count = 0;
+        var triangleNums = StreamUtil.triangleNumberSequence(100).boxed().collect(Collectors.toList());
 
         try {
-            URI uri = getClass().getResource("/p042_words.txt").toURI();
-            String data = Util.getDataFromFile(uri);
+            var uri = getClass().getResource("/p042_words.txt").toURI();
+            var data = Util.getDataFromFile(uri);
 
-            List<String> words = Stream.of(data.split(","))
+            var words = Stream.of(data.split(","))
                     .map(item -> new String(item))
                     .map(item -> item.replace("\"", ""))
                     .collect(Collectors.toList());
 
-            for (String word : words) {
+            for (var word : words) {
                 if (triangleNums.contains(this.getWordScore(word))) {
                     count++;
                 }

@@ -19,7 +19,7 @@ public class Euler14 implements Euler {
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 14:\n")
                 .append("\n")
                 .append("    The following iterative sequence is defined for the n of positive \n")
@@ -39,14 +39,12 @@ public class Euler14 implements Euler {
                 .append("\n")
                 .append("    Which starting number, under one million, produces the longest chain?\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("The starting number, under one million, produces the longest chain is %s"
+        return String.format("The starting number, under one million, produces the longest chain is %s"
                 , this.Solve());
-        return s;
     }
 
     private static long calcLen(long n) {

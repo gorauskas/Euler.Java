@@ -3,7 +3,6 @@ package com.gorauskas.euler.solutions;
 import com.gorauskas.euler.Euler;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
@@ -11,12 +10,12 @@ public class Euler36 implements Euler {
 
     @Override
     public double Solve() {
-        List<Long> L = new ArrayList<>();
+        var L = new ArrayList<Long>();
 
-        for (Long num : LongStream.rangeClosed(1, 999999).boxed().collect(Collectors.toList())) {
+        for (var num : LongStream.rangeClosed(1, 999999).boxed().collect(Collectors.toList())) {
             Long rev = Long.parseLong(new StringBuilder(num.toString()).reverse().toString());
             if (num.toString().equals(rev.toString())) {
-                String revbstr = new StringBuilder(Long.toBinaryString(num)).reverse().toString();
+                var revbstr = new StringBuilder(Long.toBinaryString(num)).reverse().toString();
                 if (Long.toBinaryString(num).equals(revbstr)) {
                     L.add(num);
                 }

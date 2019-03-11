@@ -3,7 +3,6 @@ package com.gorauskas.euler.solutions;
 import com.gorauskas.euler.Euler;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
@@ -14,7 +13,7 @@ public class Euler17 implements Euler {
     @Override
     public double Solve() {
         this.table = getLookupTable();
-        StringBuilder res = new StringBuilder();
+        var res = new StringBuilder();
         for (Long x : LongStream.rangeClosed(1, 1000).boxed().collect(Collectors.toList())) {
             res.append(this.spellNumberOut(x));
         }
@@ -23,7 +22,7 @@ public class Euler17 implements Euler {
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 17:\n")
                 .append("\n")
                 .append("    If the numbers 1 to 5 are written out in words: one, two, three, four, \n")
@@ -37,14 +36,12 @@ public class Euler17 implements Euler {
                 .append("    20 letters. The use of 'and' when writing out numbers is in compliance \n")
                 .append("    with British usage.\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("The numbers from 1 to 1000, when written out in words, have %s letters.",
+        return String.format("The numbers from 1 to 1000, when written out in words, have %s letters.",
                 (long)this.Solve());
-        return s;
     }
 
     private Map<Long, String> getLookupTable() {
@@ -59,9 +56,9 @@ public class Euler17 implements Euler {
     }
 
     private String spellNumberOut(Long num) {
-        StringBuilder buff = new StringBuilder();
-        long dec_post_val = 99L;
-        List<Long> nums = LongStream.of(
+        var buff = new StringBuilder();
+        var dec_post_val = 99L;
+        var nums = LongStream.of(
                 new StringBuilder(num.toString())
                         .reverse()
                         .chars()

@@ -16,8 +16,8 @@ public class App {
         try {
 
             Util.parseOptions(args);
-            ClassLoader cl = App.class.getClassLoader();
-            Euler euler = (Euler) cl
+            var cl = App.class.getClassLoader();
+            var euler = (Euler) cl
                     .loadClass(App.EULER_PACKAGE + App.EULER_CLASS + Util.problem)
                     .getDeclaredConstructor()
                     .newInstance();

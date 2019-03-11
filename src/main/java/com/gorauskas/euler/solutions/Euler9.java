@@ -38,7 +38,7 @@ public class Euler9 implements Euler {
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 9:\n")
                 .append("\n")
                 .append("   A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,\n")
@@ -49,14 +49,12 @@ public class Euler9 implements Euler {
                 .append("   There exists exactly one Pythagorean triplet for which a + b + c = 1000.\n")
                 .append("   Find the product abc.\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("The product of the pythagorean triple whose\n" +
+        return String.format("The product of the pythagorean triple whose\n" +
                 "sum equals 1000 is: %s"
                 , (long)this.Solve());
-        return s;
     }
 }

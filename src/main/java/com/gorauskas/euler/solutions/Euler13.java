@@ -17,7 +17,7 @@ public class Euler13 implements Euler {
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 13:\n")
                 .append("\n")
                 .append("Work out the first ten digits of the sum of the following one-hundred \n")
@@ -26,14 +26,12 @@ public class Euler13 implements Euler {
                 .append(this.getNums().map(n -> n.toString()).collect(Collectors.joining("\n")))
                 .append("\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("The first ten digits of the sum of the large numbers is: %s"
+        return String.format("The first ten digits of the sum of the large numbers is: %s"
                 , (long)this.Solve());
-        return s;
     }
 
     public Stream<BigInteger> getNums() {

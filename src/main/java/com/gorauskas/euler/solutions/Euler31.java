@@ -11,8 +11,8 @@ public class Euler31 implements Euler {
 
     @Override
     public double Solve() {
-        int[] coins = new int[] { 1, 2, 5, 10, 20, 50, 100, 200 };
-        int[] ways = new int[201];
+        var coins = new int[] { 1, 2, 5, 10, 20, 50, 100, 200 };
+        var ways = new int[201];
         ways[0] = 1;
 
         for (int coin: coins) {

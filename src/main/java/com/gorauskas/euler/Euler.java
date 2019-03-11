@@ -2,10 +2,10 @@ package com.gorauskas.euler;
 
 public interface Euler {
 
-    public double Solve();
+    double Solve();
 
-    public String getProblem();
+    String getProblem();
 
-    public String getAnswer();
+    String getAnswer();
 
 }

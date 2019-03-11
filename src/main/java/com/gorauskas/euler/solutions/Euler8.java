@@ -11,12 +11,12 @@ public class Euler8 implements Euler {
 
     @Override
     public double Solve() {
-        List<Long> nums = this.getNums();
+        var nums = this.getNums();
         long greatest = 0, i = 0;
         LongBinaryOperator ibo = (a, b) -> a * b;
 
         while (i + 13 <= nums.size()) {
-            long x = nums
+            var x = nums
                     .stream()
                     .mapToLong(Long::intValue)
                     .skip(i)
@@ -35,7 +35,7 @@ public class Euler8 implements Euler {
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("The four adjacent digits in the 1000-digit number that have the greatest\n")
                 .append("product are 9 × 9 × 8 × 9 = 5832.\n")
                 .append("\n")
@@ -44,14 +44,12 @@ public class Euler8 implements Euler {
                 .append("Find the thirteen adjacent digits in the 1000-digit number that have \n")
                 .append("the greatest product. What is the value of this product?\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("The value of the product of 13 adjacent numbers with greatest\n" +
+        return String.format("The value of the product of 13 adjacent numbers with greatest\n" +
                 "product is %s", (long)this.Solve());
-        return s;
     }
 
     private List<Long> getNums() {

@@ -3,7 +3,7 @@ package com.gorauskas.euler.solutions;
 import com.gorauskas.euler.Euler;
 
 import java.util.List;
-import java.util.function.Function;
+import java.util.function.LongPredicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -11,14 +11,14 @@ import java.util.stream.LongStream;
 public class Euler44 implements Euler {
     @Override
     public double Solve() {
-        List<Long> pentaList = getPentaList();
+        var pentaList = getPentaList();
 
-        for (int n : IntStream.rangeClosed(1, 2500).boxed().collect(Collectors.toList())) {
-            for (int m : IntStream.rangeClosed(1, n).boxed().collect(Collectors.toList())) {
-                long k = pentaList.get(n);
-                long j = pentaList.get(m);
+        for (var n : IntStream.rangeClosed(1, 2500).boxed().collect(Collectors.toList())) {
+            for (var m : IntStream.rangeClosed(1, n).boxed().collect(Collectors.toList())) {
+                var k = pentaList.get(n);
+                var j = pentaList.get(m);
 
-                if (isPentagonal.apply(k + j) && isPentagonal.apply(k - j)) {
+                if (isPentagonal.test(k + j) && isPentagonal.test(k - j)) {
                     return k - j;
                 }
             }
@@ -51,7 +51,7 @@ public class Euler44 implements Euler {
         return String.format("The value of D is %s", (long)this.Solve());
     }
 
-    private Function<Long, Boolean> isPentagonal = x -> ((Math.sqrt((24.0 * x + 1.0)) + 1.0) / 6.0) % 1.0 == 0;
+    private LongPredicate isPentagonal = x -> ((Math.sqrt((24.0 * x + 1.0)) + 1.0) / 6.0) % 1.0 == 0;
 
     private List<Long> getPentaList() {
         return LongStream.rangeClosed(1, 100000)

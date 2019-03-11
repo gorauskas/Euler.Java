@@ -20,7 +20,7 @@ public class Euler23 implements Euler {
     @Override
     public double Solve() {
 
-        Set<Integer> iset = calcSumsOfTwoAbundants(IntStream.range(1, EULER23_MAX)
+        var iset = calcSumsOfTwoAbundants(IntStream.range(1, EULER23_MAX)
                 .filter(i -> Util.sumOfDivisors(i) > i));
 
         return IntStream.range(1, EULER23_MAX)
@@ -31,7 +31,7 @@ public class Euler23 implements Euler {
 
     private Set<Integer> calcSumsOfTwoAbundants(IntStream abundants) {
 
-        int[] arr = abundants.toArray();
+        var arr = abundants.toArray();
 
         return IntStream.range(0, arr.length - 2)
                 .flatMap(i -> IntStream.range(i, arr.length - 1)
@@ -44,7 +44,7 @@ public class Euler23 implements Euler {
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 23\n")
                 .append("\n")
                 .append("    A perfect number is a number for which the sum of its proper divisors is\n")
@@ -66,15 +66,13 @@ public class Euler23 implements Euler {
                 .append("    Find the sum of all the positive integers which cannot be written as the sum\n") 
                 .append("    of two abundant numbers.\n") 
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("The sum of all the positive integers which cannot be written as the sum of two\n"
+        return String.format("The sum of all the positive integers which cannot be written as the sum of two\n"
                 + "abundant numbers is %s"
                 , (long)this.Solve());
-        return s;
     }
 
 }

@@ -16,7 +16,7 @@ public class Euler19 implements Euler {
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 19:\n")
                 .append("\n")
                 .append("    You are given the following information, but you may prefer to do some research for yourself.\n")
@@ -29,14 +29,12 @@ public class Euler19 implements Euler {
                 .append("\n")
                 .append("    How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("There were %s Sundays falling on the first of the month in the twentieth century."
+        return String.format("There were %s Sundays falling on the first of the month in the twentieth century."
                 , (long)this.Solve());
-        return s;
     }
 
     /**
@@ -47,8 +45,8 @@ public class Euler19 implements Euler {
      * @return A number from 0 to 6 representing the day of the week; 0 = Sunday
      */
     private long dayOfWeek(long year, long month, long day) {
-        long m = mod(month - 3, 48000);
-        long y = mod(year + m / 12, 400);
+        var m = mod(month - 3, 48000);
+        var y = mod(year + m / 12, 400);
         m %= 12;
         return (int)((y + y / 4 - y / 100 + (13 * m + 2) / 5 + day + 2) % 7);
     }

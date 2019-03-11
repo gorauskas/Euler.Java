@@ -2,6 +2,8 @@ package com.gorauskas.euler.solutions;
 
 import com.gorauskas.euler.Euler;
 
+import static java.lang.Math.pow;
+
 public class Euler28 implements Euler {
 
     /**
@@ -11,13 +13,13 @@ public class Euler28 implements Euler {
      */
     @Override
     public double Solve() {
-        int n = 500;
-        return (long)(((16 * Math.pow(n, 3) + 26 * n) / 3 + 10 * Math.pow(n, 2)) + 1);
+        var n = 500;
+        return (long)(((16 * pow(n, 3) + 26 * n) / 3 + 10 * pow(n, 2)) + 1);
     }
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 28\n")
                 .append("\n")
                 .append("    Starting with the number 1 and moving to the right in a clockwise direction\n")
@@ -34,13 +36,11 @@ public class Euler28 implements Euler {
                 .append("    What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral\n")
                 .append("    formed in the same way?\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("The sum of the numbers on the diagonals in a 1001 by 1001 spiral is %s\n"
+        return String.format("The sum of the numbers on the diagonals in a 1001 by 1001 spiral is %s\n"
                 , (long)this.Solve());
-        return s;
     }
 }

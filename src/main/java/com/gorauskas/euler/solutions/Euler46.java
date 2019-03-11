@@ -2,8 +2,7 @@ package com.gorauskas.euler.solutions;
 
 import com.gorauskas.euler.Euler;
 
-import java.util.List;
-import java.util.function.Function;
+import java.util.function.LongPredicate;
 import java.util.stream.Collectors;
 
 import static com.gorauskas.euler.streams.StreamUtil.primeSequence;
@@ -11,17 +10,19 @@ import static com.gorauskas.euler.streams.StreamUtil.primeSequence;
 public class Euler46 implements Euler {
     @Override
     public double Solve() {
-        List<Long> primes = primeSequence(10000).boxed().collect(Collectors.toList());
-        long r = 1;
-        boolean nf = true;
+        var primes = primeSequence(10000).boxed().collect(Collectors.toList());
+        LongPredicate twiceSquare = x -> Math.sqrt(x / 2.0) % 1.0 == 0;
+
+        var r = 1;
+        var nf = true;
 
         while (nf) {
             r += 2;
-            int j = 0;
+            var j = 0;
             nf = false;
 
             while (r >= primes.get(j)) {
-                if (twiceSquare.apply(r - primes.get(j))) {
+                if (twiceSquare.test(r - primes.get(j))) {
                     nf = true;
                     break;
                 }
@@ -57,9 +58,6 @@ public class Euler46 implements Euler {
 
     @Override
     public String getAnswer() {
-        return String.format(" %s", (long)this.Solve());
+        return String.format("The smallest odd composite that cannot be written as the sum of a prime and twice a square is %s", (long)this.Solve());
     }
-
-    private Function<Long, Boolean> twiceSquare = x -> Math.sqrt(x / 2.0) % 1.0 == 0;
-    
 }

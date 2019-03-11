@@ -4,7 +4,6 @@ import com.gorauskas.euler.Euler;
 import com.gorauskas.euler.Util;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.function.Function;
 import java.util.stream.LongStream;
 import java.util.stream.Collectors;
@@ -21,16 +20,16 @@ public class Euler43 implements Euler {
     @Override
     public double Solve() {
 
-        double sum = 0;
+        var sum = 0.0;
 
-        List<LongStream> permuted_items = Permutations.of(LongStream.rangeClosed(0, 9)
+        var permuted_items = Permutations.of(LongStream.rangeClosed(0, 9)
                 .boxed()
                 .collect(Collectors.toList()))
                 .map(i -> i.mapToLong(j -> j))
                 .collect(Collectors.toList());
 
-        for (LongStream item : permuted_items) {
-            long[] l = item.toArray();
+        for (var item : permuted_items) {
+            var l = item.toArray();
 
             if (F7.apply(l) && F6.apply(l) && F5.apply(l) && F4.apply(l) && F3.apply(l) && F2.apply(l) && F1.apply(l)) {
 

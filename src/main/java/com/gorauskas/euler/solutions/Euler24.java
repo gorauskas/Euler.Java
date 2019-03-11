@@ -21,7 +21,7 @@ public class Euler24 implements Euler {
 
     @Override
     public String getProblem() {
-        String s = new StringBuilder()
+        return new StringBuilder()
                 .append("Project Euler Problem 24\n")
                 .append("\n")
                 .append("    A permutation is an ordered arrangement of objects. For example,\n")
@@ -35,13 +35,11 @@ public class Euler24 implements Euler {
                 .append("    What is the millionth lexicographic permutation of the digits\n")
                 .append("    0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?\n")
                 .toString();
-        return s;
     }
 
     @Override
     public String getAnswer() {
-        String s = String.format("The millionth lexicographic permutation of the digits 0 through 9 is %s\n"
+        return String.format("The millionth lexicographic permutation of the digits 0 through 9 is %s\n"
                 , (long)this.Solve());
-        return s;
     }
 }
