@@ -239,10 +239,14 @@ public final class Util {
     }
 
     public static <T> String concatListAsString(Collection<T> collection) {
+        return concatListAsString(collection, "");
+    }
+
+    public static <T> String concatListAsString(Collection<T> collection, String concatenator) {
         var sb = new StringBuilder();
 
         for (T item : collection) {
-            sb.append(item.toString());
+            sb.append(item.toString()).append(concatenator);
         }
 
         return sb.toString();
@@ -250,6 +254,18 @@ public final class Util {
 
     public static <T> long concatListAsNumber(Collection<T> collection) {
         return Long.parseLong(concatListAsString(collection));
+    }
+
+    public static Map<String, Integer> enumerate(int start, List<String> list) {
+        int x = start;
+        var msi = new HashMap<String, Integer>();
+
+        for (var item : list) {
+            msi.put(item, x);
+            x++;
+        }
+
+        return msi;
     }
 
     public static String getDataFromFile(URI uri) {
@@ -272,7 +288,7 @@ public final class Util {
                 path = Paths.get(uri);
             }
 
-            data = Files.readAllLines(path).get(0);
+            data = concatListAsString(Files.readAllLines(path), "\n");
 
         } catch (IOException e) {
 
@@ -303,5 +319,15 @@ public final class Util {
         char[] c = s.toCharArray();
         Arrays.sort(c);
         return new String(c);
+    }
+
+    public static List<String> toList(String s) {
+        var rs = new ArrayList<String>();
+
+        for (char c : s.toCharArray()) {
+            rs.add(Character.toString(c));
+        }
+
+        return rs;
     }
 }
