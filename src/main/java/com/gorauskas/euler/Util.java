@@ -8,6 +8,7 @@ import java.math.BigInteger;
 import java.net.URI;
 import java.nio.file.*;
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -329,5 +330,18 @@ public final class Util {
         }
 
         return rs;
+    }
+
+    public static Map<String, Integer> sortByValue(Map<String, Integer> uMap, final boolean order) {
+        List<Map.Entry<String, Integer>> list = new LinkedList<>(uMap.entrySet());
+
+        //sort the list by value
+        list.sort((o1, o2) -> order ? o1.getValue().compareTo(o2.getValue()) == 0
+                ? o1.getKey().compareTo(o2.getKey())
+                : o1.getValue().compareTo(o2.getValue()) : o2.getValue().compareTo(o1.getValue()) == 0
+                ? o2.getKey().compareTo(o1.getKey())
+                : o2.getValue().compareTo(o1.getValue()));
+
+        return list.stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a,b) -> b, LinkedHashMap::new));
     }
 }
