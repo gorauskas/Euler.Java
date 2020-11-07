@@ -1,6 +1,6 @@
 # Euler
 
-[![Build Status](https://travis-ci.org/gorauskas/Euler.Java.svg?branch=master)](https://travis-ci.org/gorauskas/Euler.Java)
+![Build Euler.Java](https://github.com/gorauskas/Euler.Java/workflows/Java%20CI%20with%20Maven/badge.svg)
 
 Solutions to the Project Euler problems written in Java 11.
 
