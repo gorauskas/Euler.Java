@@ -1,6 +1,6 @@
 # Euler
 
-![Build Euler.Java](https://github.com/gorauskas/Euler.Java/workflows/Build%20Euler.Java/badge.svg)
+[![Build Euler.Java](https://github.com/gorauskas/Euler.Java/workflows/Build%20Euler.Java/badge.svg)](https://github.com/gorauskas/Euler.Java/actions)
 
 Solutions to the Project Euler problems written in Java 11.
 
